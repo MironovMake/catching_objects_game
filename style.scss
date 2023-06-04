@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color: #343030;
+}
+
+body {
+    height: 100vh;
+    background-color: blanchedalmond;
+}
+
+.control {
+    width: 50rem;
+    height: 10rem;
+    position: relative;
+    transform: translate(-50%, -50%);
+    left: 50vw;
+    bottom: -90vh;
+
+    background: #70d399;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.nav {
+
+    background: #436dd6;
+    font-size: 6rem;
+}
+
+.fa-person {
+    display: block;
+    background-color: rgb(249, 247, 247);
+    position: absolute;
+    padding: 10px;
+    border-style: solid;
+    transform: translate(-50%, -50%);
+    bottom: 20%;
+}
+
+.gameCtrl {
+    position: absolute;
+    font-size: 48px;
+    right: 15vw;
+    top: 10vh;
+    background-color: #70d399;
+    cursor: pointer;
+}
+
+.gamecCtrlBOX {
+    width: 25vw;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.fa-pause,
+.fa-play {
+    padding: 4rem;
+}
+
+.fa-play:hover,
+.fa-pause:hover {
+    background-color: #436dd6;
+    // font-size: 60px;
+}
+
+.chair {
+    display: block;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    font-size: 36px
+}

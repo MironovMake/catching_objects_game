@@ -1,0 +1,93 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  color: #343030;
+}
+
+body {
+  height: 100vh;
+  background-color: blanchedalmond;
+}
+
+.control {
+  width: 50rem;
+  height: 10rem;
+  position: relative;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  left: 50vw;
+  bottom: -90vh;
+  background: #70d399;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.nav {
+  background: #436dd6;
+  font-size: 6rem;
+}
+
+.fa-person {
+  display: block;
+  background-color: #f9f7f7;
+  position: absolute;
+  padding: 10px;
+  border-style: solid;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  bottom: 20%;
+}
+
+.gameCtrl {
+  position: absolute;
+  font-size: 48px;
+  right: 15vw;
+  top: 10vh;
+  background-color: #70d399;
+  cursor: pointer;
+}
+
+.gamecCtrlBOX {
+  width: 25vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.fa-pause,
+.fa-play {
+  padding: 4rem;
+}
+
+.fa-play:hover,
+.fa-pause:hover {
+  background-color: #436dd6;
+}
+
+.chair {
+  display: block;
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-size: 36px;
+}
+/*# sourceMappingURL=style.css.map */
