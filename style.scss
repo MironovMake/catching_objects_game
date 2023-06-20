@@ -86,14 +86,6 @@ body {
     background-color: #436dd6;
 }
 
-.chair {
-    display: block;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    width: 5rem;
-    transition: transform 3s linear;
-}
-
 .intro {
     .meIntro {
         position: absolute;
@@ -130,19 +122,6 @@ body {
 
 }
 
-.boxForPlatform {
-    background-color: rgb(139, 0, 107);
-
-    .platform {
-        height: 5vh;
-        background-color: burlywood;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        /* CSS animation for continuous rotation */
-    }
-}
-
 .cloud {
     position: absolute;
     top: -30%;
@@ -154,50 +133,75 @@ body {
     display: none;
 }
 
-.dropletBox {
-    position: absolute;
-    left: 50vw;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: row;
-    align-items: space-between;
-    justify-content: space-evenly;
-    font-size: 2rem;
-}
 
-.sofa {
+
+.falingObject {
     position: absolute;
     display: block;
-    position: absolute;
-    transform: translate(-50%, -80%);
-}
-
-.sofaIMG {
-    width: 40vw;
-}
-
-
-
-.hands {
-    position: absolute;
-    left: 0;
-    width: 100vw;
     height: 5vh;
+    left: 50vw;
+    transform: translateX(-50%);
 
-    .hand {
+    .boxForPlatform {
         position: absolute;
-        width: 15rem;
-        animation: rotate 2s infinite linear;
 
+        .platform {
+            height: 5vh;
+            background-color: burlywood;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            /* CSS animation for continuous rotation */
+        }
+    }
+
+    .sofa {
+        position: absolute;
+        display: block;
+        transform: translate(-170%, -80%);
+
+        .sofaIMG {
+            width: 40vw;
+        }
+    }
+
+
+
+    .chair {
+        position: absolute;
+        display: block;
+        transform: translate(-50%, -50%);
+        width: 5rem;
+    }
+
+
+    .dropletBox {
+        position: absolute;
+        display: block;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: row;
+        align-items: space-around;
+        justify-content: space-evenly;
+        font-size: 2rem;
+
+        .fa-droplet {
+            color: rgb(99, 99, 184);
+        }
+    }
+
+    .handBox {
+        // display: flex;
+        width: 100vw;
+        height: 5vh;
+
+        .hand1,
+        .hand2 {
+            position: absolute;
+            display: block;
+            transform: translate(-50%, -50%);
+            width: 15rem;
+        }
     }
 }
-
-// @keyframes rotate {
-//     from {
-//         transform: rotate(0deg);
-//     }
-
-//     to {
-//         transform: rotate(360deg);
-//     }
-// }

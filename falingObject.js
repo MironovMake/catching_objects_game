@@ -27,46 +27,39 @@ export class FalingObject {
         var falingObject = getObjectCoordinates(".falingObject");
         var person = getObjectCoordinates(".person");
         this.posY = falingObject.bottom < person.bottom ? this.posY - 0.25 : 80;
-        console.log("person.left: ", person.left)
         if (this.posY == 80) {
             // if I catch chair
             if (this.type == "chair") {
                 this.lastCathedObject = "nothing"
                 let falingChair = getObjectCoordinates(".chair");
-
                 if (Math.abs(person.middle - falingChair.middle) < 80) {
                     this.counter++
                     if (this.counter > 0) {
+                        document.querySelector(".person").value = "moveWithChair"
                         document.querySelector(".person").src = "/img/personWithChairs.png";
-                        // document.querySelector(".meInGame").innerHTML = `<img class  = "person meInGame" id = "meInGame"src="/img/personWithChairs.png" alt="if you read this, you have bad internet">`;
                     } else {
-                        // document.querySelector(".meInGame").innerHTML = `<img class  = "person meInGame" id = "meInGame"src="/img/personWithoutChairs.png" alt="if you read this, you have bad internet">`;
                         document.querySelector(".person").src = "/img/personWithoutChairs.png";
+                        document.querySelector(".person").value = "moveWithoutChair"
                     }
-                    this.gamecCtrl = document.querySelector(".counter");
-                    this.gamecCtrl.innerHTML = `<div class="counter">${this.counter}</div>`
+                    document.querySelector(".counter").innerHTML = `<div class="counter">${this.counter}</div>`
                     this.lastCathedObject = "chair"
                 }
                 // if I catch couch
             } else if (this.type == "sofa") {
-                //falingObject.left < person.left && falingObject.right > person.right && 
                 var sofaObject = getObjectCoordinates(".sofa");
                 this.lastCathedObject = "nothing"
                 if (sofaObject.left < person.left && sofaObject.right > person.right) {
                     this.lastCathedObject = "sofa"
                     this.counter--
                     if (this.counter > 0) {
+                        document.querySelector(".person").value = "moveWithChair"
                         document.querySelector(".person").src = "/img/personWithChairs.png";
-                        console.log("GHJKL:")
-                        // document.querySelector(".meInGame").innerHTML = `<img class  = "person meInGame" id = "meInGame"src="/img/personWithChairs.png" alt="if you read this, you have bad internet">`;
                     } else {
-                        // document.querySelector(".meInGame").innerHTML = `<img class  = "person meInGame" id = "meInGame"src="/img/personWithoutChairs.png" alt="if you read this, you have bad internet">`;
+                        document.querySelector(".person").value = "moveWithoutChair"
                         document.querySelector(".person").src = "/img/personWithoutChairs.png";
                     }
-                    this.gamecCtrl = document.querySelector(".counter");
-                    this.gamecCtrl.innerHTML = `<div class="counter">${this.counter}</div>`
+                    document.querySelector(".counter").innerHTML = `<div class="counter">${this.counter}</div>`
                     document.querySelector(".cloud").style.display = "none"
-
                 }
             } // if I catch droplet
             else if (this.type == "fas fa-droplet") {
@@ -87,6 +80,14 @@ export class FalingObject {
                 if (person.left > platform.left && person.right < platform.right) {
                     document.querySelector(".land").style.width = `${this.platformWidt}%`
                     this.lastCathedObject = "platform"
+                    if (this.counter > 0) {
+                        document.querySelector(".person").value = "moveWithChair"
+                        document.querySelector(".person").src = "/img/personWithChairs.png";
+                    } else {
+                        document.querySelector(".person").value = "moveWithoutChair"
+                        document.querySelector(".person").src = "/img/personWithoutChairs.png";
+                    }
+
                 }
                 document.querySelector(".cloud").style.display = "none"
             } else if (this.type == "hands") { // i catched platform
@@ -97,19 +98,24 @@ export class FalingObject {
                     this.lastCathedObject = "hands"
                     if (this.counter > 0) {
                         document.querySelector(".person").src = "/img/personWithoutChairsAndHands.png";
+                        document.querySelector(".person").value = "moveWithChairAndHands"
                     } else {
                         document.querySelector(".person").src = "/img/personWithoutChairsWithHands.png";
+                        document.querySelector(".person").value = "moveWithHands"
                     }
                 }
             } else { // i didn't catch anything
                 this.lastCathedObject = "nothing"
+
             }
             if (this.lastCathedObject == "nothing") {
                 document.querySelector(".cloud").style.display = "none"
                 if (this.counter > 0) {
+                    document.querySelector(".person").value = "moveWithChair"
                     document.querySelector(".person").src = "/img/personWithChairs.png";
                 } else {
                     document.querySelector(".person").src = "/img/personWithoutChairs.png";
+                    document.querySelector(".person").value = "moveWithoutChair"
                 }
             };
 
@@ -123,12 +129,12 @@ export class FalingObject {
                 introTextField.style.display = "block"
 
             }
-            this.posX = 20 + Math.floor(Math.random() * 60)
+            // this.posX = 20 + Math.floor(Math.random() * 60)
             this.type = this.possibleElements[Math.floor(Math.random() * this.possibleElements.length)]
-            this.posX = 20 + Math.floor(Math.random() * 60)
+            // this.posX = 20 + Math.floor(Math.random() * 60)
             if (this.type === "fas fa-droplet") {
                 this.amountOfDroplets = generateDroplets()
-                this.posX = 50
+                // this.posX = 50
             } else if (this.type === "sofa") {
                 generateSofa()
             } else if (this.type === "platform") {
@@ -149,8 +155,9 @@ export class FalingObject {
 }
 const generateDroplets = function () {
     Object.assign(document.querySelector(".falingObject").style, {
-        left: `${0}% `,
+        left: `${50}% `,
     });
+    // document.querySelector(".falingObject").style.width = "100wv"
     let amountOfDroplets = Math.floor(Math.random() * 10) + 3;
     let chairHTML = document.querySelector(".falingObject");
     var dropletID = "fas fa-droplet" + " droplet0"
@@ -162,7 +169,6 @@ const generateDroplets = function () {
     }
     displayedElem += `</div>`
     var land = getObjectCoordinates(".land");
-    let asdbm = getObjectCoordinates(".dropletBox")
 
     Object.assign(document.querySelector(".dropletBox").style, {
         width: `${land.right - land.left}px `,
@@ -174,16 +180,17 @@ const generateChair = function () {
     let displayedElem = `<img class  = "chair" src="/img/chair.png" alt="if you read this, you have bad internet">`
     let chairHTML = document.querySelector(".falingObject");
     var land1 = getObjectCoordinates(".land");
-
     let posX = Math.floor(Math.random() * (land1.right - land1.left)) + land1.left
-
-    Object.assign(document.querySelector(".falingObject").style, {
+    Object.assign(document.querySelector(".chair").style, {
         left: `${posX}px `,
     });
     chairHTML.innerHTML = displayedElem
 
 }
 const generateSofa = function () {
+    Object.assign(document.querySelector(".falingObject").style, {
+        left: `${50}% `,
+    });
     let chairHTML = document.querySelector(".falingObject");
     var displayedElem = `<div class="sofa"><img class  = "sofaIMG" src="/img/sofa.png"></div>`
     chairHTML.innerHTML = displayedElem
@@ -191,9 +198,8 @@ const generateSofa = function () {
     Object.assign(document.querySelector(".sofa").style, {
         left: `${person.left}px`,
     });
-    Object.assign(document.querySelector(".falingObject").style, {
-        left: `${0}% `,
-    });
+
+
 };
 const generatePlatform = function () {
     document.querySelector(".falingObject").innerHTML = `<div class = "boxForPlatform"><div class="platform"></div></div>`
@@ -216,22 +222,23 @@ const generatePlatform = function () {
     return platformWidt
 };
 const generateHands = function () {
-    let land = getObjectCoordinates(".land")
-    Math.floor(Math.random() * land.right) + land.left;
-
-    let chairHTML = document.querySelector(".falingObject");
-    var displayedElem = `<div class="hands"><img class  = "hand1 hand" src="/img/rightHand.png" ><img class  = "hand2 hand" src="/img/leftHand.png" ></div>`
-    chairHTML.innerHTML = displayedElem
-    let leftHand = Math.floor(Math.random() * (land.right - 200 - land.left)) + land.left
-    Object.assign(document.querySelector(".hand1").style, {
-        left: `${leftHand}px`,
-    });
-    leftHand = Math.floor(Math.random() * (land.right - 200 - land.left)) + land.left
-    Object.assign(document.querySelector(".hand2").style, {
-        left: `${leftHand}px`,
-    });
     Object.assign(document.querySelector(".falingObject").style, {
-        left: `${0}% `,
+        left: `${50}% `,
+    });
+
+    let displayedElem = `<div class = "handBox"> <img class  = "hand1 hand" src="/img/rightHand.png" ><img class  = "hand2 hand" src="/img/leftHand.png" ></div>`
+    let chairHTML = document.querySelector(".falingObject");
+    var land1 = getObjectCoordinates(".land");
+    chairHTML.innerHTML = displayedElem
+
+    var posX = Math.floor(Math.random() * (land1.right - land1.left)) + land1.left
+
+    Object.assign(document.querySelector(".hand1").style, {
+        left: `${posX}px `,
+    });
+    posX = Math.floor(Math.random() * (land1.right - land1.left)) + land1.left
+    Object.assign(document.querySelector(".hand2").style, {
+        left: `${posX}px `,
     });
 };
 export const getObjectCoordinates = function (elem) {

@@ -20,11 +20,12 @@ export class CtrlElems {
             var timeInterval = null
             timeInterval = setInterval(() => {
                 this.chair.chairFall()
-                let formElement = document.querySelector(".person");
-                let formElement1 = document.querySelector(".falingObject");
-                if (Math.round(formElement1.getBoundingClientRect().top) == Math.round(formElement.getBoundingClientRect().top)) {
-                    chairInHands++
-                } pauseButton.addEventListener("click", function () {
+                // let formElement = document.querySelector(".person");
+                // let formElement1 = document.querySelector(".falingObject");
+                // if (Math.round(formElement1.getBoundingClientRect().top) == Math.round(formElement.getBoundingClientRect().top)) {
+                //     chairInHands++
+                // } 
+                pauseButton.addEventListener("click", function () {
                     clearInterval(timeInterval);
                     playButton.style.display = "block"
                     pauseButton.style.display = "none"

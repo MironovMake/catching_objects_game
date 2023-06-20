@@ -99,18 +99,6 @@ body {
   background-color: #436dd6;
 }
 
-.chair {
-  display: block;
-  position: absolute;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  width: 5rem;
-  -webkit-transition: -webkit-transform 3s linear;
-  transition: -webkit-transform 3s linear;
-  transition: transform 3s linear;
-  transition: transform 3s linear, -webkit-transform 3s linear;
-}
-
 .intro {
   display: block;
   position: absolute;
@@ -145,20 +133,6 @@ body {
   font-size: 2rem;
 }
 
-.boxForPlatform {
-  background-color: #8b006b;
-}
-
-.boxForPlatform .platform {
-  height: 5vh;
-  background-color: burlywood;
-  position: absolute;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  /* CSS animation for continuous rotation */
-}
-
 .cloud {
   position: absolute;
   top: -30%;
@@ -170,9 +144,52 @@ body {
   display: none;
 }
 
-.dropletBox {
+.falingObject {
   position: absolute;
+  display: block;
+  height: 5vh;
   left: 50vw;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.falingObject .boxForPlatform {
+  position: absolute;
+}
+
+.falingObject .boxForPlatform .platform {
+  height: 5vh;
+  background-color: burlywood;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  /* CSS animation for continuous rotation */
+}
+
+.falingObject .sofa {
+  position: absolute;
+  display: block;
+  -webkit-transform: translate(-170%, -80%);
+          transform: translate(-170%, -80%);
+}
+
+.falingObject .sofa .sofaIMG {
+  width: 40vw;
+}
+
+.falingObject .chair {
+  position: absolute;
+  display: block;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 5rem;
+}
+
+.falingObject .dropletBox {
+  position: absolute;
+  display: block;
+  left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   display: -webkit-box;
@@ -182,38 +199,30 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-align: space-between;
-      -ms-flex-align: space-between;
-          align-items: space-between;
+  -webkit-box-align: space-around;
+      -ms-flex-align: space-around;
+          align-items: space-around;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
   font-size: 2rem;
 }
 
-.sofa {
-  position: absolute;
-  display: block;
-  position: absolute;
-  -webkit-transform: translate(-50%, -80%);
-          transform: translate(-50%, -80%);
+.falingObject .dropletBox .fa-droplet {
+  color: #6363b8;
 }
 
-.sofaIMG {
-  width: 40vw;
-}
-
-.hands {
-  position: absolute;
-  left: 0;
+.falingObject .handBox {
   width: 100vw;
   height: 5vh;
 }
 
-.hands .hand {
+.falingObject .handBox .hand1,
+.falingObject .handBox .hand2 {
   position: absolute;
+  display: block;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   width: 15rem;
-  -webkit-animation: rotate 2s infinite linear;
-          animation: rotate 2s infinite linear;
 }
 /*# sourceMappingURL=style.css.map */
