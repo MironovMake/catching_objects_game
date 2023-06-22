@@ -9,8 +9,8 @@ export class Intro {
 
         let introTextField = document.querySelector(".intro");
         let displayedElem = `                
-        <div class="textField"> 
         <img class  = "meIntro" src="/img/introIMG.png" alt="if you read this, you have bad internet">
+        <div class="textField"> 
                 <p class = "replic">${this.replics[0]}</p> 
                 <button class = "next" id = "play"> next ></i> </button > 
            </div > `

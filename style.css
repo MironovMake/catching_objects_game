@@ -9,7 +9,9 @@
 body {
   height: 100vh;
   width: 100vw;
-  background-color: blanchedalmond;
+  background: #015cc1;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(1, 92, 193, 0.527048)), to(rgba(0, 212, 255, 0.490634)));
+  background: linear-gradient(90deg, rgba(1, 92, 193, 0.527048) 0%, rgba(0, 212, 255, 0.490634) 100%);
 }
 
 .control {
@@ -20,7 +22,8 @@ body {
           transform: translate(-50%, -50%);
   left: 50vw;
   bottom: -90vh;
-  background: #70d399;
+  background: #001df5;
+  background: linear-gradient(45deg, #001df5 0%, #002439 100%);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -31,6 +34,8 @@ body {
           align-items: center;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  -webkit-box-shadow: 5px 10px;
+          box-shadow: 5px 10px;
 }
 
 .nav {
@@ -40,7 +45,9 @@ body {
 
 .land {
   width: 60%;
-  background-color: chocolate;
+  background: #015cc1;
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(1, 92, 193, 0)), to(#391400));
+  background: linear-gradient(0deg, rgba(1, 92, 193, 0) 0%, #391400 100%);
   height: 5vh;
   z-index: 3;
   position: absolute;
@@ -68,8 +75,11 @@ body {
   font-size: 48px;
   right: 15vw;
   top: 10vh;
-  background-color: #70d399;
+  background: #001df5;
+  background: linear-gradient(45deg, #001df5 0%, #002439 100%);
   cursor: pointer;
+  -webkit-box-shadow: 5px 10px;
+          box-shadow: 5px 10px;
 }
 
 .gamecCtrlBOX {
@@ -91,7 +101,7 @@ body {
 
 .fa-pause,
 .fa-play {
-  padding: 4rem;
+  padding: 3rem;
 }
 
 .fa-play:hover,
@@ -99,10 +109,26 @@ body {
   background-color: #436dd6;
 }
 
+.clue {
+  position: absolute;
+  display: none;
+  background-color: blueviolet;
+  width: 40vw;
+  z-index: -3;
+  padding: 3rem;
+  margin: 4rem;
+}
+
+.clue li {
+  font-size: 1.5rem;
+}
+
 .intro {
   display: block;
   position: absolute;
-  background-color: cadetblue;
+  background: #015cc1;
+  background: -webkit-gradient(linear, left top, right top, from(#015cc1), to(#00d4ff));
+  background: linear-gradient(90deg, #015cc1 0%, #00d4ff 100%);
   height: 30vh;
   bottom: 5vh;
   z-index: 3;
@@ -115,12 +141,11 @@ body {
 .intro .meIntro {
   position: absolute;
   display: block;
-  top: -59vh;
-  z-index: -4;
+  bottom: 100%;
 }
 
 .intro p {
-  margin: 3vw;
+  margin: 3rem;
   font-size: 2rem;
 }
 
@@ -159,12 +184,13 @@ body {
 
 .falingObject .boxForPlatform .platform {
   height: 5vh;
-  background-color: burlywood;
+  background: #015cc1;
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(1, 92, 193, 0)), to(#391400));
+  background: linear-gradient(0deg, rgba(1, 92, 193, 0) 0%, #391400 100%);
   position: absolute;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  /* CSS animation for continuous rotation */
 }
 
 .falingObject .sofa {
@@ -178,12 +204,52 @@ body {
   width: 40vw;
 }
 
+.falingObject .texstX2 {
+  position: absolute;
+  display: block;
+  color: #f6f6ff;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  left: 50%;
+  bottom: 30%;
+  font-size: 4rem;
+  font-weight: bold;
+  -webkit-text-stroke: 3px #000000;
+}
+
+.falingObject .chaiText {
+  color: black;
+  -webkit-text-stroke: 3px #ffffff;
+}
+
 .falingObject .chair {
   position: absolute;
   display: block;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   width: 5rem;
+}
+
+@-webkit-keyframes rotateChair {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateChair {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
 }
 
 .falingObject .dropletBox {
@@ -209,7 +275,7 @@ body {
 }
 
 .falingObject .dropletBox .fa-droplet {
-  color: #6363b8;
+  color: #08084d;
 }
 
 .falingObject .handBox {

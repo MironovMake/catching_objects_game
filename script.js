@@ -2,11 +2,12 @@ import { CtrlElems } from "./controlPanel.js";
 import { MoveElems } from "./moveCtrl.js";
 import { Intro } from "./intro.js";
 import { getObjectCoordinates } from "./falingObject.js";
-// import { PersonsMovmentControl } from "./movmentProssed.js";
+
 let intro = new Intro()
 var counterReplics = 0;
 const nextButton = document.querySelector(".next");
 nextButton.addEventListener("click", function () {
+
     counterReplics++
     if (counterReplics < intro.replics.length - 1) {
         let introTextField = document.querySelector(".replic");
@@ -21,6 +22,18 @@ nextButton.addEventListener("click", function () {
             introTextField.innerHTML = `<p class = "replic">${texst}</p>`
         }, 10);
     } else {
+        document.querySelector(".clue").style.display = "block"
+
+        let clue = document.querySelector(".clue");
+        let clueText = `<h1>You need to colect 20 chairs</h1>
+        <ul>
+        <li>catch chair, and you get +1 score</li>
+        <li>catch sofa, you get -1 score</li>
+        <li>if droplet fall on you, next object will appear under cloud</li>
+        <li>hands, provide chair/sofa value doubled</li>
+        <li>catch platform, your platform size will change</li>
+        <li>don't wash you hands in toilet and you get may have "interesting" day</li></ul>` ;
+        clue.innerHTML = clueText
 
         let introTextField = document.querySelector(".intro");
         introTextField.style.display = "none"
@@ -30,39 +43,10 @@ nextButton.addEventListener("click", function () {
 
         const person = document.querySelector(".person");
         let step = 1
-        let state = document.querySelector(".person").value = "moveWithoutChair"
 
-        const moveLeft = document.querySelector("#left");
-        moveLeft.addEventListener("mousemove", function () {
-            let land = getObjectCoordinates(".land")
-            let human = getObjectCoordinates(".person")
-            if (human.left < land.left) {
-                Object.assign(person.style, {
-                    left: `${land.left}px `,
-                });
-            } else {
-                Object.assign(person.style, {
-                    left: `${human.left - step}px `,
-                });
-            }
-
-        });
         let leftStep = false
         let rightStep
-        const moveRight = document.querySelector("#right");
-        moveRight.addEventListener("mousemove", function () {
-            let land = getObjectCoordinates(".land")
-            let human = getObjectCoordinates(".person")
-            if (human.right > land.right) {
-                Object.assign(person.style, {
-                    left: `${land.right}px `,
-                });
-            } else {
-                Object.assign(person.style, {
-                    left: `${human.right + step}px `,
-                });
-            }
-        });
+
         document.onkeydown = checkKey;
         function checkKey(e) {
             e = e || window.event;
@@ -73,11 +57,9 @@ nextButton.addEventListener("click", function () {
                     Object.assign(person.style, {
                         left: `${land.left}px `,
                     });
-                    // document.querySelector(".person").src = "/img/personWithoutChairsleftEdge.png";
                     updateImageWhenHoverRight()
                 } else {
                     leftStep = !leftStep
-                    // leftStep ? document.querySelector(".person").src = "/img/leftStep.png" : document.querySelector(".person").src = "/img/personWithoutChairs.png"
                     updateImageWhenMoveLeft(leftStep)
                     Object.assign(person.style, {
                         left: `${human.left - step}px `,
@@ -88,11 +70,9 @@ nextButton.addEventListener("click", function () {
                     Object.assign(person.style, {
                         left: `${land.right}px `,
                     });
-                    // document.querySelector(".person").src = "/img/personWithoutChairsRightEdge.png";
                     updateImageWhenHoverLeft()
                 } else {
                     rightStep = !rightStep
-                    // updateImage()
                     updateImageWhenMoveRight(rightStep)
                     Object.assign(person.style, {
                         left: `${human.right + step}px `,

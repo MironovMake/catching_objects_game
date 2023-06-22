@@ -8,7 +8,8 @@
 body {
     height: 100vh;
     width: 100vw;
-    background-color: blanchedalmond;
+    background: rgb(1, 92, 193);
+    background: linear-gradient(90deg, rgba(1, 92, 193, 0.5270483193277311) 0%, rgba(0, 212, 255, 0.4906337535014006) 100%);
 }
 
 .control {
@@ -18,24 +19,26 @@ body {
     transform: translate(-50%, -50%);
     left: 50vw;
     bottom: -90vh;
-    background: #70d399;
+    background: rgb(0, 29, 245);
+    background: linear-gradient(45deg, rgba(0, 29, 245, 1) 0%, rgba(0, 36, 57, 1) 100%);
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
+    box-shadow: 5px 10px;
 
 }
 
 
 .nav {
-
     background: #436dd6;
     font-size: 6rem;
 }
 
 .land {
     width: 60%;
-    background-color: chocolate;
+    background: rgb(1, 92, 193);
+    background: linear-gradient(0deg, rgba(1, 92, 193, 0) 0%, rgba(57, 20, 0, 1) 100%);
     height: 5vh;
     z-index: 3;
     position: absolute;
@@ -62,8 +65,11 @@ body {
     font-size: 48px;
     right: 15vw;
     top: 10vh;
-    background-color: #70d399;
+    background: rgb(0, 29, 245);
+    background: linear-gradient(45deg, rgba(0, 29, 245, 1) 0%, rgba(0, 36, 57, 1) 100%);
     cursor: pointer;
+    box-shadow: 5px 10px;
+
 }
 
 .gamecCtrlBOX {
@@ -78,7 +84,7 @@ body {
 
 .fa-pause,
 .fa-play {
-    padding: 4rem;
+    padding: 3rem;
 }
 
 .fa-play:hover,
@@ -86,17 +92,33 @@ body {
     background-color: #436dd6;
 }
 
+.clue {
+    position: absolute;
+    display: none;
+    background-color: blueviolet;
+    width: 40vw;
+    z-index: -3;
+
+    li {
+        font-size: 1.5rem;
+    }
+
+    padding: 3rem;
+    margin: 4rem;
+}
+
+
 .intro {
     .meIntro {
         position: absolute;
         display: block;
-        top: -59vh;
-        z-index: -4;
+        bottom: 100%;
     }
 
     display: block;
     position: absolute;
-    background-color: cadetblue;
+    background: rgb(1, 92, 193);
+    background: linear-gradient(90deg, rgba(1, 92, 193, 1) 0%, rgba(0, 212, 255, 1) 100%);
     height: 30vh;
     bottom: 5vh;
     z-index: 3;
@@ -105,7 +127,7 @@ body {
     box-shadow: 5px 10px;
 
     p {
-        margin: 3vw;
+        margin: 3rem;
         font-size: 2rem;
     }
 
@@ -147,11 +169,11 @@ body {
 
         .platform {
             height: 5vh;
-            background-color: burlywood;
+            background: rgb(1, 92, 193);
+            background: linear-gradient(0deg, rgba(1, 92, 193, 0) 0%, rgba(57, 20, 0, 1) 100%);
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            /* CSS animation for continuous rotation */
         }
     }
 
@@ -163,15 +185,44 @@ body {
         .sofaIMG {
             width: 40vw;
         }
+
+
     }
 
+    .texstX2 {
+        position: absolute;
+        display: block;
+        color: rgb(246, 246, 255);
+        transform: translate(-50%, -50%);
+        left: 50%;
+        bottom: 30%;
+        font-size: 4rem;
+        font-weight: bold;
+        -webkit-text-stroke: 3px #000000;
 
+    }
+
+    .chaiText {
+        color: rgb(0, 0, 0);
+        -webkit-text-stroke: 3px #ffffff;
+    }
 
     .chair {
         position: absolute;
         display: block;
         transform: translate(-50%, -50%);
         width: 5rem;
+
+    }
+
+    @keyframes rotateChair {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
     }
 
 
@@ -187,7 +238,7 @@ body {
         font-size: 2rem;
 
         .fa-droplet {
-            color: rgb(99, 99, 184);
+            color: rgb(8, 8, 77);
         }
     }
 
