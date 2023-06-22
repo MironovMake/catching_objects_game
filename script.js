@@ -73,7 +73,8 @@ nextButton.addEventListener("click", function () {
                     Object.assign(person.style, {
                         left: `${land.left}px `,
                     });
-                    document.querySelector(".person").src = "/img/personWithoutChairsleftEdge.png";
+                    // document.querySelector(".person").src = "/img/personWithoutChairsleftEdge.png";
+                    updateImageWhenHoverRight()
                 } else {
                     leftStep = !leftStep
                     // leftStep ? document.querySelector(".person").src = "/img/leftStep.png" : document.querySelector(".person").src = "/img/personWithoutChairs.png"
@@ -87,7 +88,8 @@ nextButton.addEventListener("click", function () {
                     Object.assign(person.style, {
                         left: `${land.right}px `,
                     });
-                    document.querySelector(".person").src = "/img/personWithoutChairsRightEdge.png";
+                    // document.querySelector(".person").src = "/img/personWithoutChairsRightEdge.png";
+                    updateImageWhenHoverLeft()
                 } else {
                     rightStep = !rightStep
                     // updateImage()
@@ -145,17 +147,39 @@ function updateImageWhenMoveLeft(step) {
         case "moveWithHands":
             step ? document.querySelector(".person").src = "/img/stepRightWithHands.png" : document.querySelector(".person").src = "/img/personWithoutChairsWithHands.png"
             break;
-        case "rightHover":
-            document.querySelector(".person").src = "/img/personWithoutChairs.png"
+    }
+}
+function updateImageWhenHoverLeft() {
+    let state = document.querySelector(".person").value
+    switch (state) {
+        case "moveWithoutChair":
+            document.querySelector(".person").src = "/img/personWithoutChairsRightEdge.png"
             break;
-        case "rightHoverWithChair":
-            document.querySelector(".person").src = "/img/rightStep.png"
+        case "moveWithChair":
+            document.querySelector(".person").src = "/img/personWithChairsRightEdge.png"
             break;
-        case "rightHoverWithChairAndHands":
-            document.querySelector(".person").src = "/img/personWithoutChairs.png"
+        case "moveWithChairAndHands":
+            document.querySelector(".person").src = "/img/personWithoutChairsAndHandsRightEdge.png"
             break;
-        case "rightHoverWithHands":
-            document.querySelector(".person").src = "/img/rightStep.png"
+        case "moveWithHands":
+            document.querySelector(".person").src = "/img/personWithoutChairsWithHandsRightEdge.png"
+            break;
+    }
+}
+function updateImageWhenHoverRight() {
+    let state = document.querySelector(".person").value
+    switch (state) {
+        case "moveWithoutChair":
+            document.querySelector(".person").src = "/img/personWithoutChairsLeftEdge.png"
+            break;
+        case "moveWithChair":
+            document.querySelector(".person").src = "/img/personWithChairsLeftEdge.png"
+            break;
+        case "moveWithChairAndHands":
+            document.querySelector(".person").src = "/img/personWithoutChairsAndHandsLeftEdge.png"
+            break;
+        case "moveWithHands":
+            document.querySelector(".person").src = "/img/personWithoutChairsWithHandsLeftEdge.png"
             break;
     }
 }
