@@ -11,6 +11,8 @@ export class CtrlElems {
         pauseButton.style.display = "none"
 
         playButton.addEventListener("click", function () {
+            document.querySelector(".clue").style.opacity = "0.7"
+
             playButton.style.display = "none"
             pauseButton.style.display = "block"
 

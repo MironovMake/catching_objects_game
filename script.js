@@ -20,9 +20,14 @@ nextButton.addEventListener("click", function () {
             }
             let texst = intro.replics[counterReplics].substr(0, j);
             introTextField.innerHTML = `<p class = "replic">${texst}</p>`
+
         }, 10);
+        if (counterReplics == 2) {
+            document.querySelector(".cake").style.display = "block"
+        }
     } else {
         document.querySelector(".clue").style.display = "block"
+        document.querySelector(".cake").style.display = "none"
 
         let clue = document.querySelector(".clue");
         let clueText = `<h1>You need to colect 20 chairs</h1>

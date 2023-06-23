@@ -12,6 +12,24 @@ body {
     background: linear-gradient(90deg, rgba(1, 92, 193, 0.5270483193277311) 0%, rgba(0, 212, 255, 0.4906337535014006) 100%);
 }
 
+.cake {
+    position: relative;
+    display: none;
+    left: 40vw;
+    animation: rotateCake 6s infinite linear;
+    top: 20vh;
+}
+
+@keyframes rotateCake {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 .control {
     width: 50rem;
     height: 10rem;
@@ -40,7 +58,7 @@ body {
     background: rgb(1, 92, 193);
     background: linear-gradient(0deg, rgba(1, 92, 193, 0) 0%, rgba(57, 20, 0, 1) 100%);
     height: 5vh;
-    z-index: 3;
+    z-index: 1;
     position: absolute;
     bottom: 20%;
     left: 50%;
@@ -97,7 +115,7 @@ body {
     display: none;
     background-color: blueviolet;
     width: 40vw;
-    z-index: -3;
+    z-index: -1;
 
     li {
         font-size: 1.5rem;
@@ -121,7 +139,7 @@ body {
     background: linear-gradient(90deg, rgba(1, 92, 193, 1) 0%, rgba(0, 212, 255, 1) 100%);
     height: 30vh;
     bottom: 5vh;
-    z-index: 3;
+    z-index: 1;
     margin-left: 5vw;
     width: 90vw;
     box-shadow: 5px 10px;
@@ -254,5 +272,41 @@ body {
             transform: translate(-50%, -50%);
             width: 15rem;
         }
+    }
+}
+
+.bacground {
+    position: absolute;
+    top: 20vh;
+    width: 80vw;
+    z-index: -2;
+    opacity: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: space-around;
+    justify-content: space-evenly;
+}
+
+.backgroundObj {
+
+    animation: rotateCake 6s infinite linear;
+
+}
+
+.backcloud {
+    position: absolute;
+    opacity: 70%;
+    top: -20vh;
+    z-index: -2;
+}
+
+
+@keyframes bacgroundObjects {
+    from {
+        transform: rotate(10deg);
+    }
+
+    to {
+        transform: rotate(20deg);
     }
 }
