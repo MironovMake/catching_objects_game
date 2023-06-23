@@ -1,0 +1,101 @@
+@media only screen and (max-width: 800px) {
+
+    /*   For mobile:*/
+    .intro {
+        height: 35vh;
+        bottom: 0;
+        margin-left: 0;
+        width: 100%;
+        box-shadow: none;
+
+        img {
+            width: 100%;
+
+        }
+
+        p {
+            margin: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .next {
+            height: 3rem;
+            width: 5rem;
+            right: 2rem;
+            bottom: 2rem;
+            font-size: 1.5rem;
+        }
+
+    }
+
+    .land {
+        width: 90vw;
+    }
+
+    .clue {
+        position: absolute;
+        display: none;
+        background-color: blueviolet;
+        width: 90vw;
+        z-index: -1;
+        margin-left: 5vw;
+        top: 10vh;
+
+        li {
+            font-size: 1.5rem;
+        }
+
+    }
+
+    .gameCtrl {
+        z-index: 1;
+        position: absolute;
+        font-size: 48px;
+        right: 5vw;
+        top: 5vh;
+        background: rgb(102, 214, 255);
+        background: linear-gradient(45deg, rgb(141, 207, 224) 0%, rgba(0, 36, 57, 1) 100%);
+        cursor: pointer;
+        -webkit-box-shadow: 1px 1px 24px 4px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 1px 1px 24px 4px rgba(0, 0, 0, 0.75);
+        box-shadow: 1px 1px 24px 4px rgba(0, 0, 0, 0.75);
+
+    }
+
+    .gamecCtrlBOX {
+        width: 70vw;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+        -webkit-box-shadow: 1px 1px 24px 4px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 1px 1px 24px 4px rgba(0, 0, 0, 0.75);
+        box-shadow: 1px 1px 24px 4px rgba(0, 0, 0, 0.75);
+
+    }
+
+    .backcloud {
+        width: 100%;
+        position: absolute;
+        opacity: 70%;
+        top: 0;
+        z-index: -2;
+    }
+
+    .control {
+        width: 100vw;
+        height: 10rem;
+        position: absolute;
+        transform: translate(-50%, 0%);
+        // left: 50vw;
+        bottom: 0;
+        background: rgb(0, 29, 245);
+        background: linear-gradient(45deg, rgba(0, 29, 245, 1) 0%, rgba(0, 36, 57, 1) 100%);
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+        box-shadow: none;
+
+    }
+}

@@ -8,10 +8,18 @@ export class CtrlElems {
         new RenderControlPanel()
         let pauseButton = document.querySelector("#pause");
         let playButton = document.querySelector("#play");
+        let helpButton = document.querySelector(".help");
         pauseButton.style.display = "none"
+        helpButton.addEventListener("click", function () {
+            if (document.querySelector(".clue").style.display == "block") {
+                document.querySelector(".clue").style.display = "none"
+            } else {
+                document.querySelector(".clue").style.display = "block"
+            }
+
+        })
 
         playButton.addEventListener("click", function () {
-            document.querySelector(".clue").style.opacity = "0.7"
 
             playButton.style.display = "none"
             pauseButton.style.display = "block"
@@ -40,8 +48,9 @@ class RenderControlPanel {
         this.gamecCtrl.innerHTML = `
     <div class="gamecCtrlBOX">
     <div class="counter">${counter}</div>
-    <button class = "play" id = "play">  <i class="fa fa-play "  ></i> </button > 
-    <button class = "pause" id = "pause">  <i class="fa fa-pause "  ></i> </button > 
+    <button class = "topRightElem play" id = "play">  <i class="fa fa-play "  ></i> </button > 
+    <button class = "topRightElem pause" id = "pause">  <i class="fa fa-pause "  ></i> </button > 
+    <button class = "topRightElem help" id = "help"> Rules </button > 
     </div>`
 
     }

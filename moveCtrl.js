@@ -9,6 +9,6 @@ export class MoveElems {
         <button id = "right">  <i class="nav fa fa-arrow-circle-right "  ></i> </button > 
    </div > `
         movmentControl.innerHTML = displayedElem
+        document.querySelector(".person").value = "moveWithoutChair"
     }
-
 }

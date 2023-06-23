@@ -130,11 +130,19 @@ body {
           box-shadow: 5px 10px;
 }
 
-.fa-pause,
-.fa-play {
-  padding: 3rem;
+.topRightElem {
+  height: 6rem;
+  width: 7rem;
+  font-size: 2rem;
+  color: #232370;
 }
 
+.help {
+  background-color: #ffffff;
+  border: none;
+}
+
+.help:hover,
 .fa-play:hover,
 .fa-pause:hover {
   background-color: #436dd6;
@@ -375,6 +383,104 @@ body {
   to {
     -webkit-transform: rotate(20deg);
             transform: rotate(20deg);
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  /*   For mobile:*/
+  .intro {
+    height: 35vh;
+    bottom: 0;
+    margin-left: 0;
+    width: 100%;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+  .intro img {
+    width: 100%;
+  }
+  .intro p {
+    margin: 1.5rem;
+    font-size: 1.5rem;
+  }
+  .intro .next {
+    height: 3rem;
+    width: 5rem;
+    right: 2rem;
+    bottom: 2rem;
+    font-size: 1.5rem;
+  }
+  .land {
+    width: 90vw;
+  }
+  .clue {
+    position: absolute;
+    display: none;
+    background-color: blueviolet;
+    width: 90vw;
+    z-index: -1;
+    margin-left: 5vw;
+    top: 10vh;
+  }
+  .clue li {
+    font-size: 1.5rem;
+  }
+  .gameCtrl {
+    z-index: 1;
+    position: absolute;
+    font-size: 48px;
+    right: 5vw;
+    top: 5vh;
+    background: #66d6ff;
+    background: linear-gradient(45deg, #8dcfe0 0%, #002439 100%);
+    cursor: pointer;
+    -webkit-box-shadow: 1px 1px 24px 4px rgba(0, 0, 0, 0.75);
+    box-shadow: 1px 1px 24px 4px rgba(0, 0, 0, 0.75);
+  }
+  .gamecCtrlBOX {
+    width: 70vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-shadow: 1px 1px 24px 4px rgba(0, 0, 0, 0.75);
+    box-shadow: 1px 1px 24px 4px rgba(0, 0, 0, 0.75);
+  }
+  .backcloud {
+    width: 100%;
+    position: absolute;
+    opacity: 70%;
+    top: 0;
+    z-index: -2;
+  }
+  .control {
+    width: 100vw;
+    height: 10rem;
+    position: absolute;
+    -webkit-transform: translate(-50%, 0%);
+            transform: translate(-50%, 0%);
+    bottom: 0;
+    background: #001df5;
+    background: linear-gradient(45deg, #001df5 0%, #002439 100%);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-shadow: none;
+            box-shadow: none;
   }
 }
 /*# sourceMappingURL=style.css.map */

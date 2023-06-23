@@ -100,11 +100,19 @@ body {
 
 }
 
-.fa-pause,
-.fa-play {
-    padding: 3rem;
+.topRightElem {
+    height: 6rem;
+    width: 7rem;
+    font-size: 2rem;
+    color: rgb(35, 35, 112);
 }
 
+.help {
+    background-color: #ffffff;
+    border: none;
+}
+
+.help:hover,
 .fa-play:hover,
 .fa-pause:hover {
     background-color: #436dd6;
@@ -310,3 +318,5 @@ body {
         transform: rotate(20deg);
     }
 }
+
+@import "mobile";

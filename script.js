@@ -26,7 +26,6 @@ nextButton.addEventListener("click", function () {
             document.querySelector(".cake").style.display = "block"
         }
     } else {
-        document.querySelector(".clue").style.display = "block"
         document.querySelector(".cake").style.display = "none"
 
         let clue = document.querySelector(".clue");
@@ -167,4 +166,5 @@ function updateImageWhenHoverRight() {
             document.querySelector(".person").src = "/img/personWithoutChairsWithHandsLeftEdge.png"
             break;
     }
+
 }
