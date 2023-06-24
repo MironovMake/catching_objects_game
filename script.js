@@ -2,7 +2,10 @@ import { CtrlElems } from "./controlPanel.js";
 import { MoveElems } from "./moveCtrl.js";
 import { Intro } from "./intro.js";
 import { getObjectCoordinates } from "./falingObject.js";
+let step = 1
 
+let leftStep = false
+let rightStep
 let intro = new Intro()
 var counterReplics = 0;
 const nextButton = document.querySelector(".next");
@@ -27,6 +30,9 @@ nextButton.addEventListener("click", function () {
         }
     } else {
         document.querySelector(".cake").style.display = "none"
+        var slider = document.querySelector(".slider");
+        slider.style.display = "block"
+
 
         let clue = document.querySelector(".clue");
         let clueText = `<h1>You need to colect 20 chairs</h1>
@@ -46,10 +52,7 @@ nextButton.addEventListener("click", function () {
         new MoveElems()
 
         const person = document.querySelector(".person");
-        let step = 1
 
-        let leftStep = false
-        let rightStep
 
         document.onkeydown = checkKey;
         function checkKey(e) {
@@ -168,3 +171,44 @@ function updateImageWhenHoverRight() {
     }
 
 }
+// Get the joystick element
+var slider = document.querySelector(".slider");
+slider.oninput = function () {
+    // output.innerHTML = this.value;
+    // console.log(this.value)
+    // console.log("this.value: ", this.value)
+    let land = getObjectCoordinates(".land")
+    let human = getObjectCoordinates(".person")
+
+    if (this.value < 50) {
+        console.log("this.value: ", this.value)
+
+        if (human.left < land.left) {
+            Object.assign(person.style, {
+                left: `${land.left}px `,
+            });
+            updateImageWhenHoverRight()
+        } else {
+            leftStep = !leftStep
+            updateImageWhenMoveLeft(leftStep)
+            Object.assign(person.style, {
+                left: `${human.left - Math.floor(step / 2)}px `,
+            });
+        }
+    } else if (this.value > 50) {
+        if (human.right > land.right) {
+            Object.assign(person.style, {
+                left: `${land.right}px `,
+            });
+            updateImageWhenHoverLeft()
+        } else {
+            rightStep = !rightStep
+            updateImageWhenMoveRight(rightStep)
+            Object.assign(person.style, {
+                left: `${human.right + Math.floor(step / 2)}px `,
+            });
+        }
+    }
+    this.value = 50
+}
+

@@ -364,6 +364,10 @@ body {
   z-index: -2;
 }
 
+.space-top {
+  padding-top: 10px;
+}
+
 @-webkit-keyframes bacgroundObjects {
   from {
     -webkit-transform: rotate(10deg);
@@ -386,10 +390,25 @@ body {
   }
 }
 
+.slider {
+  position: absolute;
+  bottom: 0;
+  z-index: 5;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 10rem;
+  outline: none;
+  opacity: 0;
+  -webkit-transition: .2s;
+  -webkit-transition: opacity .2s;
+  transition: opacity .2s;
+  display: none;
+}
+
 @media only screen and (max-width: 800px) {
   /*   For mobile:*/
   .intro {
-    height: 35vh;
+    height: 40vh;
     bottom: 0;
     margin-left: 0;
     width: 100%;
@@ -401,7 +420,7 @@ body {
   }
   .intro p {
     margin: 1.5rem;
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
   .intro .next {
     height: 3rem;
@@ -422,13 +441,16 @@ body {
     margin-left: 5vw;
     top: 10vh;
   }
-  .clue li {
+  .clue h1 {
     font-size: 1.5rem;
+  }
+  .clue li {
+    font-size: 1rem;
   }
   .gameCtrl {
     z-index: 1;
     position: absolute;
-    font-size: 48px;
+    font-size: 24px;
     right: 5vw;
     top: 5vh;
     background: #66d6ff;
@@ -438,7 +460,7 @@ body {
     box-shadow: 1px 1px 24px 4px rgba(0, 0, 0, 0.75);
   }
   .gamecCtrlBOX {
-    width: 70vw;
+    width: 90vw;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -481,6 +503,24 @@ body {
         justify-content: space-around;
     -webkit-box-shadow: none;
             box-shadow: none;
+  }
+  .slider {
+    display: none;
+    width: 100vw;
+    height: 10rem;
+    position: absolute;
+    bottom: 0;
+    z-index: 5;
+  }
+  .backgroundObj {
+    width: 40vw;
+  }
+  .bacground {
+    left: 20%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 }
 /*# sourceMappingURL=style.css.map */
