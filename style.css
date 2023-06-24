@@ -532,5 +532,20 @@ body {
         -ms-flex-direction: column;
             flex-direction: column;
   }
+  .dropletBox {
+    font-size: 1rem;
+  }
+  .handBox {
+    width: 100vw;
+    height: 5vh;
+  }
+  .handBox .hand1,
+  .handBox .hand2 {
+    position: absolute;
+    display: block;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    width: 5rem;
+  }
 }
 /*# sourceMappingURL=style.css.map */

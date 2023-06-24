@@ -8,7 +8,7 @@ export class FalingObject {
     platformWidt
     lastCatchedObjectHands
     possibleElements = ["sofa", "chair", "sofa", "chair", "fas fa-droplet", "platform", "hands", "hands"]
-    // possibleElements = ["sofa", "chair", "fas fa-droplet", "platform", "hands"]
+    // possibleElements = ["sofa", "chair", "sofa", "chair", "fas fa-droplet", "platform", "hands", "hands"]
     constructor() {
         this.type = this.possibleElements[Math.floor(Math.random() * this.possibleElements.length)]
         if (this.type === "fas fa-droplet") {
@@ -160,7 +160,9 @@ const generateDroplets = function () {
     Object.assign(document.querySelector(".falingObject").style, {
         left: `${50}% `,
     });
-    let amountOfDroplets = Math.floor(Math.random() * 10) + 3;
+    let maxDroplets = screen.width > 800 ? 10 : 2;
+
+    let amountOfDroplets = Math.floor(Math.random() * maxDroplets) + 3;
     let chairHTML = document.querySelector(".falingObject");
     var dropletID = "fas fa-droplet" + " droplet0"
     var displayedElem = `<div class="dropletBox"><i class='${dropletID}' ></i>`
@@ -216,7 +218,10 @@ const generateSofa = function (lastCathedObject) {
 };
 const generatePlatform = function () {
     document.querySelector(".falingObject").innerHTML = `<div class = "boxForPlatform"><div class="platform"></div></div>`
-    let platformWidt = 20 + Math.floor(Math.random() * 40)
+    let maxplatformWidth = screen.width > 800 ? 40 : 70;
+    let minplatformWidth = screen.width > 800 ? 20 : 40;
+
+    let platformWidt = minplatformWidth + Math.floor(Math.random() * maxplatformWidth)
     document.querySelector(".platform").style.width = `${platformWidt}vw`
     let land = getObjectCoordinates(".land")
     let human = getObjectCoordinates(".person")

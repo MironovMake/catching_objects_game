@@ -23,8 +23,6 @@ listImages.forEach(x =>
     displayedElem += `<img class  = "allPictures" src="${x}" >`
 )
 document.querySelector(".allImagesBox").innerHTML = displayedElem
-
-console.log(listImages)
 nextButton.addEventListener("click", function () {
 
     counterReplics++
@@ -48,7 +46,6 @@ nextButton.addEventListener("click", function () {
             document.querySelector(".cake").style.display = "none"
         }
     } else {
-        document.querySelector(".cake").style.display = "none"
         var slider = document.querySelector(".slider");
         slider.style.display = "block"
 
@@ -63,6 +60,7 @@ nextButton.addEventListener("click", function () {
         <li>catch platform, your platform size will change</li>
         <li>don't wash you hands in toilet and you get may have "interesting" day</li></ul>` ;
         clue.innerHTML = clueText
+        document.querySelector(".meIntro").src = "/img/introIMG.png"
 
         let introTextField = document.querySelector(".intro");
         introTextField.style.display = "none"

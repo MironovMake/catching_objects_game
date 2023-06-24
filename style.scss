@@ -309,11 +309,6 @@ body {
 }
 
 
-
-// .space-top {
-//     padding-top: 10px;
-// }
-
 @keyframes bacgroundObjects {
     from {
         transform: rotate(10deg);
@@ -482,5 +477,24 @@ body {
         left: 20%;
         flex-direction: column;
 
+    }
+
+    .dropletBox {
+        font-size: 1rem;
+
+    }
+
+    .handBox {
+        // display: flex;
+        width: 100vw;
+        height: 5vh;
+
+        .hand1,
+        .hand2 {
+            position: absolute;
+            display: block;
+            transform: translate(-50%, -50%);
+            width: 5rem;
+        }
     }
 }
