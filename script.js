@@ -9,6 +9,22 @@ let rightStep
 let intro = new Intro()
 var counterReplics = 0;
 const nextButton = document.querySelector(".next");
+let list = [
+    "cake", "introFaceWithCAke", "personWithChairs", "personWithChairsLeftEdge", "personWithChairsRightEdge",
+    "personWithoutChairs", "personWithoutChairsAndHands", "personWithoutChairsAndHandsLeftEdge",
+    "personWithoutChairsAndHandsRightEdge", "personWithoutChairsleftEdge", "personWithoutChairsRightEdge",
+    "personWithoutChairsWithHandsLeftEdge", "personWithoutChairsWithHandsRightEdge", "leftStep", "rightStep",
+    "stepLeftWithChair", "stepLeftWithChairsAndHands", "stepLeftWithHands", "stepRightWithChair", "stepRightWithChairsAndHands",
+    "stepRightWithHands"
+]
+let listImages = list.map(x => "/img/" + x + ".png")
+var displayedElem = ``
+listImages.forEach(x =>
+    displayedElem += `<img class  = "allPictures" src="${x}" >`
+)
+document.querySelector(".allImagesBox").innerHTML = displayedElem
+
+console.log(listImages)
 nextButton.addEventListener("click", function () {
 
     counterReplics++
@@ -27,6 +43,9 @@ nextButton.addEventListener("click", function () {
         }, 10);
         if (counterReplics == 2) {
             document.querySelector(".cake").style.display = "block"
+        } else if (counterReplics == 3) {
+            document.querySelector(".meIntro").src = "/img/introFaceWithCAke.png"
+            document.querySelector(".cake").style.display = "none"
         }
     } else {
         document.querySelector(".cake").style.display = "none"
@@ -152,6 +171,7 @@ function updateImageWhenHoverLeft() {
             document.querySelector(".person").src = "/img/personWithoutChairsWithHandsRightEdge.png"
             break;
     }
+
 }
 function updateImageWhenHoverRight() {
     let state = document.querySelector(".person").value
@@ -181,8 +201,6 @@ slider.oninput = function () {
     let human = getObjectCoordinates(".person")
 
     if (this.value < 50) {
-        console.log("this.value: ", this.value)
-
         if (human.left < land.left) {
             Object.assign(person.style, {
                 left: `${land.left}px `,
