@@ -3,6 +3,7 @@ export class CtrlElems {
     gamecCtrl
     chairExist
     chair
+
     constructor() {
         this.chairExist = false
         new RenderControlPanel()
@@ -16,9 +17,7 @@ export class CtrlElems {
             } else {
                 document.querySelector(".clue").style.display = "block"
             }
-
         })
-
         playButton.addEventListener("click", function () {
 
             playButton.style.display = "none"
@@ -27,6 +26,7 @@ export class CtrlElems {
             this.chair = new FalingObject()
             this.chairExist = true;
             var timeInterval = null
+
             timeInterval = setInterval(() => {
                 this.chair.chairFall()
                 pauseButton.addEventListener("click", function () {
@@ -36,6 +36,29 @@ export class CtrlElems {
                 });
             }, 6);
         });
+        let musicButton = document.querySelector(".music");
+        musicButton.addEventListener("click", function () {
+            var audio = document.querySelector(".myAudio");
+
+            if (document.querySelector(".music").innerHTML == `<i class="fas fa-volume-up"></i>`) {
+                document.querySelector(".music").innerHTML = `<i class='fas fa-volume-mute'></i>`
+                audio.loop = true;
+                audio.addEventListener("canplaythrough", function () {
+                    audio.play();
+                });
+
+                audio.addEventListener("ended", function () {
+                    audio.currentTime = 0;
+                    audio.play();
+                });
+
+                audio.load();
+            } else {
+                document.querySelector(".music").innerHTML = `<i class="fas fa-volume-up"></i>`
+                audio.pause();
+            };
+
+        })
     }
 }
 
@@ -50,8 +73,11 @@ class RenderControlPanel {
     <div class="counter">${counter}</div>
     <button class = "topRightElem play" id = "play">  <i class="fa fa-play "  ></i> </button > 
     <button class = "topRightElem pause" id = "pause">  <i class="fa fa-pause "  ></i> </button > 
+    <button class = "topRightElem music" ><i class="fas fa-volume-up"></i></button > 
     <button class = "topRightElem help" id = "help"> Rules </button > 
-    </div>`
-
+    </div>
+<audio class="myAudio">
+  <source src="8bit.wav" >
+</audio>  `
     }
 }

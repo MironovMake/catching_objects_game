@@ -3,7 +3,6 @@ import { MoveElems } from "./moveCtrl.js";
 import { Intro } from "./intro.js";
 import { getObjectCoordinates } from "./falingObject.js";
 let step = 1
-
 let leftStep = false
 let rightStep
 let intro = new Intro()
@@ -48,6 +47,9 @@ nextButton.addEventListener("click", function () {
     } else {
         var slider = document.querySelector(".slider");
         slider.style.display = "block"
+        // let audio = new Audio("8bit.wav")
+        // audio.loop = true;
+        // audio.play()
 
 
         let clue = document.querySelector(".clue");
@@ -61,13 +63,11 @@ nextButton.addEventListener("click", function () {
         <li>don't wash you hands in toilet and you get may have "interesting" day</li></ul>` ;
         clue.innerHTML = clueText
         document.querySelector(".meIntro").src = "/img/introIMG.png"
-
         let introTextField = document.querySelector(".intro");
         introTextField.style.display = "none"
 
         new CtrlElems()
         new MoveElems()
-
         const person = document.querySelector(".person");
 
 
@@ -106,6 +106,8 @@ nextButton.addEventListener("click", function () {
         }
     }
 });
+
+
 
 function updateImageWhenMoveRight(step) {
     let state = document.querySelector(".person").value
@@ -172,6 +174,7 @@ function updateImageWhenHoverLeft() {
 
 }
 function updateImageWhenHoverRight() {
+    stepSound.play()
     let state = document.querySelector(".person").value
     switch (state) {
         case "moveWithoutChair":
@@ -228,3 +231,28 @@ slider.oninput = function () {
     this.value = 50
 }
 
+const musicButton = document.querySelector(".music");
+musicButton.addEventListener("click", function () {
+
+    let audio = new Audio("8bit.wav");
+
+    if (document.querySelector(".music").innerHTML == `<i class="fas fa-volume-up"></i>`) {
+        document.querySelector(".music").innerHTML = `<i class='fas fa-volume-mute'></i>`
+        audio.loop = true;
+
+        audio.addEventListener("canplaythrough", function () {
+            audio.play();
+        });
+
+        audio.addEventListener("ended", function () {
+            audio.currentTime = 0;
+            audio.play();
+        });
+
+        audio.load();
+    } else {
+        document.querySelector(".music").innerHTML = `<i class="fas fa-volume-up"></i>`
+        audio.pause();
+    };
+
+})

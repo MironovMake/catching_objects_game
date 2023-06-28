@@ -21,6 +21,7 @@ body {
   -webkit-animation: rotateCake 6s infinite linear;
           animation: rotateCake 6s infinite linear;
   top: 20vh;
+  z-index: 3;
 }
 
 @-webkit-keyframes rotateCake {
@@ -412,6 +413,10 @@ body {
   z-index: -5;
 }
 
+.stopMusic {
+  display: none;
+}
+
 @media only screen and (max-width: 800px) {
   /*   For mobile:*/
   .intro {
@@ -437,7 +442,9 @@ body {
     font-size: 1.5rem;
   }
   .land {
-    width: 90vw;
+    width: 70vw;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
   }
   .clue {
     position: absolute;
@@ -532,20 +539,124 @@ body {
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  .dropletBox {
-    font-size: 1rem;
-  }
-  .handBox {
-    width: 100vw;
+  .falingObject {
+    position: absolute;
+    display: block;
     height: 5vh;
+    left: 50vw;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
   }
-  .handBox .hand1,
-  .handBox .hand2 {
+  .falingObject .boxForPlatform {
+    position: absolute;
+  }
+  .falingObject .boxForPlatform .platform {
+    height: 5vh;
+    background: #015cc1;
+    background: -webkit-gradient(linear, left bottom, left top, from(rgba(1, 92, 193, 0)), to(#391400));
+    background: linear-gradient(0deg, rgba(1, 92, 193, 0) 0%, #391400 100%);
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+  .falingObject .sofa {
+    position: absolute;
+    display: block;
+    -webkit-transform: translate(-120%, -80%);
+            transform: translate(-120%, -80%);
+  }
+  .falingObject .sofa .sofaIMG {
+    width: 60vw;
+  }
+  .falingObject .texstX2 {
+    position: absolute;
+    display: block;
+    color: #f6f6ff;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    left: 50%;
+    bottom: 30%;
+    font-size: 4rem;
+    font-weight: bold;
+    -webkit-text-stroke: 3px #000000;
+  }
+  .falingObject .chaiText {
+    color: black;
+    -webkit-text-stroke: 3px #ffffff;
+  }
+  .falingObject .chair {
     position: absolute;
     display: block;
     -webkit-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
-    width: 5rem;
+    width: 4rem;
+  }
+  @-webkit-keyframes rotateChair {
+    from {
+      -webkit-transform: rotate(0deg);
+              transform: rotate(0deg);
+    }
+    to {
+      -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
+    }
+  }
+  @keyframes rotateChair {
+    from {
+      -webkit-transform: rotate(0deg);
+              transform: rotate(0deg);
+    }
+    to {
+      -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
+    }
+  }
+  .falingObject .dropletBox {
+    position: absolute;
+    display: block;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: space-around;
+        -ms-flex-align: space-around;
+            align-items: space-around;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    font-size: 1rem;
+  }
+  .falingObject .dropletBox .fa-droplet {
+    color: #08084d;
+  }
+  .falingObject .handBox {
+    width: 100vw;
+    height: 5vh;
+  }
+  .falingObject .handBox .hand1,
+  .falingObject .handBox .hand2 {
+    position: absolute;
+    display: block;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    width: 8rem;
+  }
+  .cake {
+    position: relative;
+    display: none;
+    left: 5vw;
+    -webkit-animation: rotateCake 6s infinite linear;
+            animation: rotateCake 6s infinite linear;
+    top: 20vh;
+    width: 40vw;
+    z-index: 3;
   }
 }
 /*# sourceMappingURL=style.css.map */

@@ -28,7 +28,11 @@ export class FalingObject {
 
         var falingObject = getObjectCoordinates(".falingObject");
         var person = getObjectCoordinates(".person");
-        this.posY = falingObject.bottom < person.bottom ? this.posY - 0.25 : 80;
+        var speedGame = 0.25
+        if (navigator.userAgent.match(/firefox|fxios/i)) {
+            speedGame = 0.75;
+        }
+        this.posY = falingObject.bottom < person.bottom ? this.posY - speedGame : 80;
         if (this.posY == 80) {
             // if I catch chair
             if (this.type == "chair") {
@@ -209,19 +213,28 @@ const generateSofa = function (lastCathedObject) {
     } else {
         displayedElem = `<div class="sofa"><img class  = "sofaIMG" src="/img/sofa.png"></div>`
     } chairHTML.innerHTML = displayedElem
-    let person = getObjectCoordinates(".person")
-    Object.assign(document.querySelector(".sofa").style, {
-        left: `${person.left}px`,
-    });
+    if (screen.width > 800) {
+        let person = getObjectCoordinates(".person")
+
+        Object.assign(document.querySelector(".sofa").style, {
+            left: `${person.left}px`,
+        });
+    } else {
+        let sofaPos = Math.floor(Math.random() * 200) + 50;
+
+        Object.assign(document.querySelector(".sofa").style, {
+            left: `${sofaPos}px`,
+        });
+    }
 
 
 };
 const generatePlatform = function () {
     document.querySelector(".falingObject").innerHTML = `<div class = "boxForPlatform"><div class="platform"></div></div>`
-    let maxplatformWidth = screen.width > 800 ? 40 : 70;
-    let minplatformWidth = screen.width > 800 ? 20 : 40;
+    let maxplatformWidth = screen.width > 800 ? 40 : 60;
+    let minplatformWidth = screen.width > 800 ? 20 : 20;
 
-    let platformWidt = minplatformWidth + Math.floor(Math.random() * maxplatformWidth)
+    let platformWidt = Math.floor(Math.random() * (maxplatformWidth - minplatformWidth)) + minplatformWidth
     document.querySelector(".platform").style.width = `${platformWidt}vw`
     let land = getObjectCoordinates(".land")
     let human = getObjectCoordinates(".person")
@@ -239,6 +252,7 @@ const generatePlatform = function () {
     });
     return platformWidt
 };
+
 const generateHands = function (counter) {
     Object.assign(document.querySelector(".falingObject").style, {
         left: `${50}% `,
@@ -248,13 +262,13 @@ const generateHands = function (counter) {
     let chairHTML = document.querySelector(".falingObject");
     var land1 = getObjectCoordinates(".land");
     chairHTML.innerHTML = displayedElem
+    var posX = screen.width > 800 ? Math.floor(Math.random() * (land1.right - land1.left)) + land1.left : Math.floor(Math.random() * 250) + 50;
 
-    var posX = Math.floor(Math.random() * (land1.right - land1.left)) + land1.left
 
     Object.assign(document.querySelector(".hand1").style, {
         left: `${posX}px `,
     });
-    posX = Math.floor(Math.random() * (land1.right - land1.left)) + land1.left
+    posX = screen.width > 800 ? Math.floor(Math.random() * (land1.right - land1.left)) + land1.left : Math.floor(Math.random() * 250) + 50;
     Object.assign(document.querySelector(".hand2").style, {
         left: `${posX}px `,
     });
