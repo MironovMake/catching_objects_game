@@ -77,7 +77,16 @@ class RenderControlPanel {
     <button class = "topRightElem help" id = "help"> Rules </button > 
     </div>
 <audio class="myAudio">
-  <source src="8bit.wav" >
+  <source src="8bit.mp3" >
 </audio>  `
     }
 }
+
+/*
+  <select name="cars" id="cars">
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="opel">Opel</option>
+    <option value="audi">Audi</option>
+  </select>
+  */
