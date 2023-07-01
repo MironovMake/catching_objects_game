@@ -47,11 +47,6 @@ nextButton.addEventListener("click", function () {
     } else {
         var slider = document.querySelector(".slider");
         slider.style.display = "block"
-        // let audio = new Audio("8bit.wav")
-        // audio.loop = true;
-        // audio.play()
-
-
         let clue = document.querySelector(".clue");
         let clueText = `<h1>You need to colect 20 chairs</h1>
         <ul>
@@ -69,7 +64,7 @@ nextButton.addEventListener("click", function () {
         new CtrlElems()
         new MoveElems()
         const person = document.querySelector(".person");
-
+        person.style.display = "block"
 
         document.onkeydown = checkKey;
         function checkKey(e) {
@@ -174,7 +169,6 @@ function updateImageWhenHoverLeft() {
 
 }
 function updateImageWhenHoverRight() {
-    stepSound.play()
     let state = document.querySelector(".person").value
     switch (state) {
         case "moveWithoutChair":
@@ -195,9 +189,6 @@ function updateImageWhenHoverRight() {
 // Get the joystick element
 var slider = document.querySelector(".slider");
 slider.oninput = function () {
-    // output.innerHTML = this.value;
-    // console.log(this.value)
-    // console.log("this.value: ", this.value)
     let land = getObjectCoordinates(".land")
     let human = getObjectCoordinates(".person")
 
@@ -230,29 +221,3 @@ slider.oninput = function () {
     }
     this.value = 50
 }
-
-const musicButton = document.querySelector(".music");
-musicButton.addEventListener("click", function () {
-
-    let audio = new Audio("8bit.wav");
-
-    if (document.querySelector(".music").innerHTML == `<i class="fas fa-volume-up"></i>`) {
-        document.querySelector(".music").innerHTML = `<i class='fas fa-volume-mute'></i>`
-        audio.loop = true;
-
-        audio.addEventListener("canplaythrough", function () {
-            audio.play();
-        });
-
-        audio.addEventListener("ended", function () {
-            audio.currentTime = 0;
-            audio.play();
-        });
-
-        audio.load();
-    } else {
-        document.querySelector(".music").innerHTML = `<i class="fas fa-volume-up"></i>`
-        audio.pause();
-    };
-
-})

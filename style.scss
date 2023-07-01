@@ -1,3 +1,11 @@
+$fontSize: 1.5rem;
+$fontSizeMobile: 1rem;
+
+@mixin buttonsBacground {
+    background: rgb(1, 92, 193);
+    background: linear-gradient(90deg, rgba(1, 92, 193, 0.5270483193277311) 0%, rgba(0, 212, 255, 0.4906337535014006) 100%);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -8,8 +16,7 @@
 body {
     height: 100vh;
     width: 100vw;
-    background: rgb(1, 92, 193);
-    background: linear-gradient(90deg, rgba(1, 92, 193, 0.5270483193277311) 0%, rgba(0, 212, 255, 0.4906337535014006) 100%);
+    @include buttonsBacground();
 }
 
 .cake {
@@ -38,13 +45,11 @@ body {
     transform: translate(-50%, -50%);
     left: 50vw;
     bottom: -90vh;
-    background: rgb(0, 29, 245);
-    background: linear-gradient(45deg, rgba(0, 29, 245, 1) 0%, rgba(0, 36, 57, 1) 100%);
+    @include buttonsBacground();
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
-    box-shadow: 5px 10px;
 
 }
 
@@ -54,80 +59,65 @@ body {
     font-size: 6rem;
 }
 
-.land {
-    width: 60%;
-    background: rgb(1, 92, 193);
-    background: linear-gradient(0deg, rgba(1, 92, 193, 0) 0%, rgba(57, 20, 0, 1) 100%);
-    height: 5vh;
-    z-index: 1;
-    position: absolute;
-    bottom: 20%;
-    left: 50%;
-    transform: translateX(-50%);
+.movmentCtrl {
+    .land {
+        position: absolute;
+        width: 70vw;
+        max-width: 70rem;
+        background: rgb(1, 92, 193);
+        background: linear-gradient(0deg, rgba(1, 92, 193, 0) 0%, rgba(57, 20, 0, 1) 100%);
+        height: 5vh;
+        z-index: 1;
+        bottom: 20vh;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }
 
-.withoutChair,
-.withChair {
-    display: block;
+.person {
     position: absolute;
+    display: none;
+    bottom: 25vh;
     left: 50%;
-    // padding: 10px;
-    transform: translate(-50%, -50%);
-    bottom: 18%;
+    transform: translateX(-50%);
     height: 7rem;
 }
 
-
 .gameCtrl {
-    z-index: 1;
     position: absolute;
-    font-size: 48px;
     right: 15vw;
     top: 10vh;
-    background: rgb(0, 29, 245);
-    background: linear-gradient(45deg, rgba(0, 29, 245, 1) 0%, rgba(0, 36, 57, 1) 100%);
-    cursor: pointer;
-    box-shadow: 5px 10px;
-
-}
-
-.gamecCtrlBOX {
-    width: 25vw;
+    font-size: $fontSize;
+    @include buttonsBacground();
+    width: auto;
+    min-width: 25rem;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
-    box-shadow: 5px 10px;
 
+    .topRightElem {
+        font-size: $fontSize;
+        padding: 1rem;
+        color: rgb(35, 35, 112);
+    }
 }
 
-.topRightElem {
-    height: 6rem;
-    width: 7rem;
-    font-size: 2rem;
-    color: rgb(35, 35, 112);
-}
-
-.help {
-    background-color: #ffffff;
-    border: none;
-}
-
-.help:hover,
-.fa-play:hover,
-.fa-pause:hover {
+.topRightElem:hover {
     background-color: #436dd6;
 }
+
+
 
 .clue {
     position: absolute;
     display: none;
     background-color: blueviolet;
-    width: 40vw;
+    width: auto;
     z-index: -1;
 
     li {
-        font-size: 1.5rem;
+        font-size: $fontSize;
     }
 
     padding: 3rem;
@@ -151,11 +141,11 @@ body {
     z-index: 1;
     margin-left: 5vw;
     width: 90vw;
-    box-shadow: 5px 10px;
+    box-shadow: 5px 10px 18px #888888;
 
     p {
         margin: 3rem;
-        font-size: 2rem;
+        font-size: $fontSize;
     }
 
     .next {
@@ -164,7 +154,7 @@ body {
         position: absolute;
         right: 3rem;
         bottom: 2rem;
-        font-size: 2rem;
+        font-size: $fontSize;
 
     }
 
@@ -284,41 +274,47 @@ body {
     }
 }
 
-.bacground {
+.boxForRotatingObjects {
     position: absolute;
+
     top: 20vh;
-    width: 80vw;
+    width: 95vw;
     z-index: -2;
     opacity: 50%;
-    display: flex;
-    flex-direction: row;
-    align-items: space-around;
-    justify-content: space-evenly;
+    display: grid;
+    left: 2vw;
+    grid-template-columns: 10% 45% 20% 20%;
+
+    .backgroundObj {
+        width: 100%;
+        animation: rotateCake 20s infinite linear;
+    }
+
 }
 
-.backgroundObj {
-
-    animation: rotateCake 20s infinite linear;
-
-}
 
 .backcloud {
+    display: block;
     position: absolute;
+    left: 0;
+    top: -30vh;
+    width: 70vw;
+
+    max-width: 90rem;
     opacity: 70%;
-    top: -20vh;
     z-index: -2;
 }
 
 
-@keyframes bacgroundObjects {
-    from {
-        transform: rotate(10deg);
-    }
+// @keyframes bacgroundObjects {
+//     from {
+//         transform: rotate(10deg);
+//     }
 
-    to {
-        transform: rotate(20deg);
-    }
-}
+//     to {
+//         transform: rotate(20deg);
+//     }
+// }
 
 
 .slider {
@@ -341,15 +337,280 @@ body {
 
 .allPictures {
     position: absolute;
-    height: 1rem;
-    width: 1rem;
-    bottom: 10vh;
-    left: 50vw;
+    height: 1px;
+    width: 1px;
+    top: 0;
+    left: 0;
     z-index: -5;
+}
+
+.listOfSongs {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 6;
+    top: 0;
+    left: 0;
+
+    .songBox {
+        position: absolute;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: auto;
+        height: auto;
+
+        .song {
+            display: block;
+            font-size: $fontSize;
+            @include buttonsBacground();
+            width: 15rem;
+        }
+    }
+}
+
+.song:hover {
+    background-color: chartreuse;
 }
 
 .stopMusic {
     display: none;
 }
 
-@import "mobile";
+
+// @import "mobile";
+
+@media only screen and (max-width: 800px) {
+
+
+    /*   For mobile:*/
+    .intro {
+        height: 40vh;
+        bottom: 0;
+        margin-left: 0;
+        width: 100%;
+        box-shadow: none;
+
+        img {
+            width: 100%;
+
+        }
+
+
+
+        p {
+            margin: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .next {
+            height: 3rem;
+            width: 5rem;
+            right: 2rem;
+            bottom: 2rem;
+            font-size: 1.5rem;
+        }
+
+    }
+
+    .land {
+        max-width: 70vw;
+        width: 70vw;
+        transform: translate(-50%, -50%);
+    }
+
+    .clue {
+        position: absolute;
+        display: none;
+        background-color: blueviolet;
+        width: 90vw;
+        z-index: -1;
+        margin-left: 5vw;
+        top: 10vh;
+
+        h1 {
+            font-size: 1.5rem;
+
+        }
+
+        li {
+            font-size: 1rem;
+        }
+
+    }
+
+    .gameCtrl {
+        right: 0;
+        top: 0;
+        width: 100vw;
+        z-index: 1;
+        position: absolute;
+        font-size: $fontSizeMobile;
+
+        .topRightElem {
+            font-size: $fontSizeMobile;
+            height: 4rem;
+            width: 5rem;
+            color: rgb(35, 35, 112);
+        }
+    }
+
+    .backcloud {
+        width: 100%;
+        position: absolute;
+        opacity: 70%;
+        top: 0;
+        z-index: -2;
+    }
+
+    .control {
+        width: 100vw;
+        height: 10rem;
+        position: absolute;
+        transform: translate(-50%, 0%);
+        bottom: 0;
+        @include buttonsBacground();
+
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+        box-shadow: none;
+
+    }
+
+    .slider {
+        display: none;
+        width: 100vw;
+        height: 10rem;
+        position: absolute;
+
+        left: 0;
+        transform: translate(0, 0);
+        bottom: 0;
+        z-index: 5;
+    }
+
+    .backgroundObj {
+        width: 40vw;
+    }
+
+    .boxForRotatingObjects {
+        top: 30vh;
+        transform: rotate(-60deg);
+
+    }
+
+
+    .falingObject {
+        position: absolute;
+        display: block;
+        height: 5vh;
+        left: 50vw;
+        transform: translateX(-50%);
+
+        .boxForPlatform {
+            position: absolute;
+
+            .platform {
+                height: 5vh;
+                background: rgb(1, 92, 193);
+                background: linear-gradient(0deg, rgba(1, 92, 193, 0) 0%, rgba(57, 20, 0, 1) 100%);
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        .sofa {
+            position: absolute;
+            display: block;
+            transform: translate(-120%, -80%);
+
+            .sofaIMG {
+                width: 60vw;
+            }
+
+
+        }
+
+        .texstX2 {
+            position: absolute;
+            display: block;
+            color: rgb(246, 246, 255);
+            transform: translate(-50%, -50%);
+            left: 50%;
+            bottom: 30%;
+            font-size: 4rem;
+            font-weight: bold;
+            -webkit-text-stroke: 3px #000000;
+
+        }
+
+        .chaiText {
+            color: rgb(0, 0, 0);
+            -webkit-text-stroke: 3px #ffffff;
+        }
+
+        .chair {
+            position: absolute;
+            display: block;
+            transform: translate(-50%, -50%);
+            width: 4rem;
+        }
+
+        @keyframes rotateChair {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+
+        .dropletBox {
+            position: absolute;
+            display: block;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: row;
+            align-items: space-around;
+            justify-content: space-evenly;
+            font-size: 1rem;
+
+            .fa-droplet {
+                color: rgb(8, 8, 77);
+            }
+        }
+
+        .handBox {
+            // display: flex;
+            width: 100vw;
+            height: 5vh;
+
+            .hand1,
+            .hand2 {
+                position: absolute;
+                display: block;
+                transform: translate(-50%, -50%);
+                width: 8rem;
+            }
+        }
+    }
+
+    .cake {
+        position: relative;
+        display: none;
+        left: 5vw;
+        animation: rotateCake 6s infinite linear;
+        top: 20vh;
+        width: 40vw;
+        z-index: 3;
+    }
+}

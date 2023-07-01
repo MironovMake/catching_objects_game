@@ -54,8 +54,9 @@ body {
           transform: translate(-50%, -50%);
   left: 50vw;
   bottom: -90vh;
-  background: #001df5;
-  background: linear-gradient(45deg, #001df5 0%, #002439 100%);
+  background: #015cc1;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(1, 92, 193, 0.527048)), to(rgba(0, 212, 255, 0.490634)));
+  background: linear-gradient(90deg, rgba(1, 92, 193, 0.527048) 0%, rgba(0, 212, 255, 0.490634) 100%);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -66,8 +67,6 @@ body {
           align-items: center;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  -webkit-box-shadow: 5px 10px;
-          box-shadow: 5px 10px;
 }
 
 .nav {
@@ -75,46 +74,41 @@ body {
   font-size: 6rem;
 }
 
-.land {
-  width: 60%;
+.movmentCtrl .land {
+  position: absolute;
+  width: 70vw;
+  max-width: 70rem;
   background: #015cc1;
   background: -webkit-gradient(linear, left bottom, left top, from(rgba(1, 92, 193, 0)), to(#391400));
   background: linear-gradient(0deg, rgba(1, 92, 193, 0) 0%, #391400 100%);
   height: 5vh;
   z-index: 1;
-  position: absolute;
-  bottom: 20%;
+  bottom: 20vh;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
 }
 
-.withoutChair,
-.withChair {
-  display: block;
+.person {
   position: absolute;
+  display: none;
+  bottom: 25vh;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  bottom: 18%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
   height: 7rem;
 }
 
 .gameCtrl {
-  z-index: 1;
   position: absolute;
-  font-size: 48px;
   right: 15vw;
   top: 10vh;
-  background: #001df5;
-  background: linear-gradient(45deg, #001df5 0%, #002439 100%);
-  cursor: pointer;
-  -webkit-box-shadow: 5px 10px;
-          box-shadow: 5px 10px;
-}
-
-.gamecCtrlBOX {
-  width: 25vw;
+  font-size: 1.5rem;
+  background: #015cc1;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(1, 92, 193, 0.527048)), to(rgba(0, 212, 255, 0.490634)));
+  background: linear-gradient(90deg, rgba(1, 92, 193, 0.527048) 0%, rgba(0, 212, 255, 0.490634) 100%);
+  width: auto;
+  min-width: 25rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -126,25 +120,15 @@ body {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  -webkit-box-shadow: 5px 10px;
-          box-shadow: 5px 10px;
 }
 
-.topRightElem {
-  height: 6rem;
-  width: 7rem;
-  font-size: 2rem;
+.gameCtrl .topRightElem {
+  font-size: 1.5rem;
+  padding: 1rem;
   color: #232370;
 }
 
-.help {
-  background-color: #ffffff;
-  border: none;
-}
-
-.help:hover,
-.fa-play:hover,
-.fa-pause:hover {
+.topRightElem:hover {
   background-color: #436dd6;
 }
 
@@ -152,7 +136,7 @@ body {
   position: absolute;
   display: none;
   background-color: blueviolet;
-  width: 40vw;
+  width: auto;
   z-index: -1;
   padding: 3rem;
   margin: 4rem;
@@ -173,8 +157,8 @@ body {
   z-index: 1;
   margin-left: 5vw;
   width: 90vw;
-  -webkit-box-shadow: 5px 10px;
-          box-shadow: 5px 10px;
+  -webkit-box-shadow: 5px 10px 18px #888888;
+          box-shadow: 5px 10px 18px #888888;
 }
 
 .intro .meIntro {
@@ -185,7 +169,7 @@ body {
 
 .intro p {
   margin: 3rem;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .intro .next {
@@ -194,7 +178,7 @@ body {
   position: absolute;
   right: 3rem;
   bottom: 2rem;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .cloud {
@@ -331,59 +315,34 @@ body {
   width: 15rem;
 }
 
-.bacground {
+.boxForRotatingObjects {
   position: absolute;
   top: 20vh;
-  width: 80vw;
+  width: 95vw;
   z-index: -2;
   opacity: 50%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: space-around;
-      -ms-flex-align: space-around;
-          align-items: space-around;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  display: -ms-grid;
+  display: grid;
+  left: 2vw;
+  -ms-grid-columns: 10% 45% 20% 20%;
+      grid-template-columns: 10% 45% 20% 20%;
 }
 
-.backgroundObj {
+.boxForRotatingObjects .backgroundObj {
+  width: 100%;
   -webkit-animation: rotateCake 20s infinite linear;
           animation: rotateCake 20s infinite linear;
 }
 
 .backcloud {
+  display: block;
   position: absolute;
+  left: 0;
+  top: -30vh;
+  width: 70vw;
+  max-width: 90rem;
   opacity: 70%;
-  top: -20vh;
   z-index: -2;
-}
-
-@-webkit-keyframes bacgroundObjects {
-  from {
-    -webkit-transform: rotate(10deg);
-            transform: rotate(10deg);
-  }
-  to {
-    -webkit-transform: rotate(20deg);
-            transform: rotate(20deg);
-  }
-}
-
-@keyframes bacgroundObjects {
-  from {
-    -webkit-transform: rotate(10deg);
-            transform: rotate(10deg);
-  }
-  to {
-    -webkit-transform: rotate(20deg);
-            transform: rotate(20deg);
-  }
 }
 
 .slider {
@@ -406,11 +365,53 @@ body {
 
 .allPictures {
   position: absolute;
-  height: 1rem;
-  width: 1rem;
-  bottom: 10vh;
-  left: 50vw;
+  height: 1px;
+  width: 1px;
+  top: 0;
+  left: 0;
   z-index: -5;
+}
+
+.listOfSongs {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 6;
+  top: 0;
+  left: 0;
+}
+
+.listOfSongs .songBox {
+  position: absolute;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: auto;
+  height: auto;
+}
+
+.listOfSongs .songBox .song {
+  display: block;
+  font-size: 1.5rem;
+  background: #015cc1;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(1, 92, 193, 0.527048)), to(rgba(0, 212, 255, 0.490634)));
+  background: linear-gradient(90deg, rgba(1, 92, 193, 0.527048) 0%, rgba(0, 212, 255, 0.490634) 100%);
+  width: 15rem;
+}
+
+.song:hover {
+  background-color: chartreuse;
 }
 
 .stopMusic {
@@ -442,6 +443,7 @@ body {
     font-size: 1.5rem;
   }
   .land {
+    max-width: 70vw;
     width: 70vw;
     -webkit-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
@@ -462,32 +464,18 @@ body {
     font-size: 1rem;
   }
   .gameCtrl {
+    right: 0;
+    top: 0;
+    width: 100vw;
     z-index: 1;
     position: absolute;
-    font-size: 24px;
-    right: 5vw;
-    top: 5vh;
-    background: #66d6ff;
-    background: linear-gradient(45deg, #8dcfe0 0%, #002439 100%);
-    cursor: pointer;
-    -webkit-box-shadow: 1px 1px 24px 4px rgba(0, 0, 0, 0.75);
-    box-shadow: 1px 1px 24px 4px rgba(0, 0, 0, 0.75);
+    font-size: 1rem;
   }
-  .gamecCtrlBOX {
-    width: 90vw;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: space-evenly;
-        -ms-flex-pack: space-evenly;
-            justify-content: space-evenly;
-    -webkit-box-shadow: 1px 1px 24px 4px rgba(0, 0, 0, 0.75);
-    box-shadow: 1px 1px 24px 4px rgba(0, 0, 0, 0.75);
+  .gameCtrl .topRightElem {
+    font-size: 1rem;
+    height: 4rem;
+    width: 5rem;
+    color: #232370;
   }
   .backcloud {
     width: 100%;
@@ -503,8 +491,9 @@ body {
     -webkit-transform: translate(-50%, 0%);
             transform: translate(-50%, 0%);
     bottom: 0;
-    background: #001df5;
-    background: linear-gradient(45deg, #001df5 0%, #002439 100%);
+    background: #015cc1;
+    background: -webkit-gradient(linear, left top, right top, from(rgba(1, 92, 193, 0.527048)), to(rgba(0, 212, 255, 0.490634)));
+    background: linear-gradient(90deg, rgba(1, 92, 193, 0.527048) 0%, rgba(0, 212, 255, 0.490634) 100%);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -532,12 +521,10 @@ body {
   .backgroundObj {
     width: 40vw;
   }
-  .bacground {
-    left: 20%;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+  .boxForRotatingObjects {
+    top: 30vh;
+    -webkit-transform: rotate(-60deg);
+            transform: rotate(-60deg);
   }
   .falingObject {
     position: absolute;

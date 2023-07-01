@@ -24,13 +24,15 @@ export class FalingObject {
 
         }
     }
-    chairFall() {
-
+    objectFall() {
         var falingObject = getObjectCoordinates(".falingObject");
         var person = getObjectCoordinates(".person");
         var speedGame = 0.25
         if (navigator.userAgent.match(/firefox|fxios/i)) {
             speedGame = 0.75;
+        }
+        if (this.counter > 15) {
+            speedGame += 0.05
         }
         this.posY = falingObject.bottom < person.bottom ? this.posY - speedGame : 80;
         if (this.posY == 80) {
@@ -138,6 +140,11 @@ export class FalingObject {
                 document.querySelector(".next").style.display = "none"
                 let introTextField = document.querySelector(".intro");
                 introTextField.style.display = "block"
+            }
+            if (this.lastCathedObject == "hands") {
+                this.possibleElements = ["sofa", "sofa", "chair"]
+            } else {
+                this.possibleElements = ["sofa", "chair", "sofa", "chair", "fas fa-droplet", "platform", "hands", "hands"]
             }
             this.type = this.possibleElements[Math.floor(Math.random() * this.possibleElements.length)]
             if (this.type === "fas fa-droplet") {
@@ -273,7 +280,6 @@ const generateHands = function (counter) {
         left: `${posX}px `,
     });
     if (counter > 10) {
-        console.log("counter: ", counter)
         document.querySelector(".hand1").style.animation = "rotateChair 2s infinite linear";
         document.querySelector(".hand2").style.animation = "rotateChair 2s infinite linear";
     } else {
@@ -281,6 +287,8 @@ const generateHands = function (counter) {
         document.querySelector(".hand2").style.animation = "";
     }
 };
+
+
 export const getObjectCoordinates = function (elem) {
     return {
         object: document.querySelector(elem),

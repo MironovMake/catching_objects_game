@@ -16,9 +16,6 @@ export class Intro {
            </div > `
         introTextField.innerHTML = displayedElem
 
-
-
-
     }
 
 }

@@ -1,11 +1,11 @@
 import { FalingObject } from "./falingObject.js";
 export class CtrlElems {
     gamecCtrl
-    chairExist
-    chair
+    objectExist
+    object
 
     constructor() {
-        this.chairExist = false
+        this.objectExist = false
         new RenderControlPanel()
         let pauseButton = document.querySelector("#pause");
         let playButton = document.querySelector("#play");
@@ -23,12 +23,12 @@ export class CtrlElems {
             playButton.style.display = "none"
             pauseButton.style.display = "block"
 
-            this.chair = new FalingObject()
-            this.chairExist = true;
+            this.object = new FalingObject()
+            this.objectExist = true;
             var timeInterval = null
 
             timeInterval = setInterval(() => {
-                this.chair.chairFall()
+                this.object.objectFall()
                 pauseButton.addEventListener("click", function () {
                     clearInterval(timeInterval);
                     playButton.style.display = "block"
@@ -38,26 +38,23 @@ export class CtrlElems {
         });
         let musicButton = document.querySelector(".music");
         musicButton.addEventListener("click", function () {
-            var audio = document.querySelector(".myAudio");
-
-            if (document.querySelector(".music").innerHTML == `<i class="fas fa-volume-up"></i>`) {
-                document.querySelector(".music").innerHTML = `<i class='fas fa-volume-mute'></i>`
-                audio.loop = true;
-                audio.addEventListener("canplaythrough", function () {
-                    audio.play();
+            document.querySelector(".listOfSongs").style.display = "block"
+            if (screen.width > 800) {
+                let songLeft = document.querySelector(".music").getBoundingClientRect().left
+                let songTop = document.querySelector(".music").getBoundingClientRect().bottom
+                Object.assign(document.querySelector(".songBox").style, {
+                    left: `${songLeft}px `,
+                    top: `${songTop}px `,
                 });
+                document.querySelector(".songBox").style.transform = "translate(0, 0)"
 
-                audio.addEventListener("ended", function () {
-                    audio.currentTime = 0;
-                    audio.play();
-                });
-
-                audio.load();
             } else {
-                document.querySelector(".music").innerHTML = `<i class="fas fa-volume-up"></i>`
-                audio.pause();
-            };
-
+                document.querySelector(".songBox").style.transform = "translate(-50%, -50%)"
+                Object.assign(document.querySelector(".songBox").style, {
+                    left: `50%`,
+                    top: `50%`,
+                });
+            }
         })
     }
 }
@@ -69,24 +66,49 @@ class RenderControlPanel {
         }
         this.gamecCtrl = document.querySelector(".gameCtrl");
         this.gamecCtrl.innerHTML = `
-    <div class="gamecCtrlBOX">
-    <div class="counter">${counter}</div>
+    <div class=" counter">${counter}</div>
     <button class = "topRightElem play" id = "play">  <i class="fa fa-play "  ></i> </button > 
     <button class = "topRightElem pause" id = "pause">  <i class="fa fa-pause "  ></i> </button > 
-    <button class = "topRightElem music" ><i class="fas fa-volume-up"></i></button > 
+    <button class = "topRightElem music" ><i class="fas fa-volume-mute"></i></button > 
     <button class = "topRightElem help" id = "help"> Rules </button > 
-    </div>
-<audio class="myAudio">
-  <source src="8bit.mp3" >
-</audio>  `
+    <audio class="myAudio">
+    <source src="audio/one.mp3" >
+    </audio>  `
+        // render songs 
+        let songs = ["one", "two", "none"]
+        var displayedElem = `<div class = "songBox">`
+        songs.forEach(x =>
+            displayedElem += `<button class = "song ${x}" id ="${x}">${x}</button>`
+        )
+        displayedElem += `</div>`
+        document.querySelector(".listOfSongs").innerHTML = displayedElem
+        songs.forEach(x =>
+            document.querySelector("." + x).addEventListener("click", function () {
+                if (x != "none") {
+                    document.querySelector(".myAudio").innerHTML = `<source src="audio/${x}.mp3" >`
+                    var audio = document.querySelector(".myAudio");
+                    document.querySelector(".music").innerHTML = `<i class='fas fa-volume-up'></i>`
+                    audio.loop = true;
+                    audio.addEventListener("canplaythrough", function () {
+                        audio.play();
+                    });
+
+                    audio.addEventListener("ended", function () {
+                        audio.currentTime = 0;
+                        audio.play();
+                    });
+
+                    audio.load();
+
+                } else {
+                    var audio = document.querySelector(".myAudio");
+                    document.querySelector(".music").innerHTML = `<i class="fas fa-volume-mute"></i>`
+                    audio.pause();
+                }
+                document.querySelector(".listOfSongs").style.display = "none"
+
+            })
+        )
     }
 }
 
-/*
-  <select name="cars" id="cars">
-    <option value="volvo">Volvo</option>
-    <option value="saab">Saab</option>
-    <option value="opel">Opel</option>
-    <option value="audi">Audi</option>
-  </select>
-  */
