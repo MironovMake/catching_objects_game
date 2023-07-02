@@ -7,8 +7,8 @@ export class FalingObject {
     amountOfDroplets
     platformWidt
     lastCatchedObjectHands
-    possibleElements = ["sofa", "chair", "sofa", "chair", "fas fa-droplet", "platform", "hands", "hands"]
-    // possibleElements = ["sofa", "chair", "sofa", "chair", "fas fa-droplet", "platform", "hands", "hands"]
+    possibleElements = ["chair"]
+    //sofa", "chair", "sofa", "chair", "fas fa-droplet", "platform", "hands", "hands
     constructor() {
         this.type = this.possibleElements[Math.floor(Math.random() * this.possibleElements.length)]
         if (this.type === "fas fa-droplet") {
@@ -140,6 +140,7 @@ export class FalingObject {
                 document.querySelector(".next").style.display = "none"
                 let introTextField = document.querySelector(".intro");
                 introTextField.style.display = "block"
+
             }
             if (this.lastCathedObject == "hands") {
                 this.possibleElements = ["sofa", "sofa", "chair"]
